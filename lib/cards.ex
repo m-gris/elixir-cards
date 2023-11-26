@@ -30,6 +30,10 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  def deal(deck, n_cards) do
+    Enum.split(deck, n_cards)
+  end
+
 
   def contains?(deck, card) do
     Enum.member?(deck, card)
