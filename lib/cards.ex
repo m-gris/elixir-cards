@@ -44,4 +44,11 @@ defmodule Cards do
     File.write(filename, binary)
   end
 
+  def load(cards_path) do
+    case File.read(cards_path) do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _reason} -> "File `#{cards_path}` does not exists"
+    end
+  end
+
 end
