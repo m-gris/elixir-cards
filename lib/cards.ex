@@ -40,6 +40,13 @@ defmodule Cards do
     Determines whether a `deck` contains a `card` or not. 
 
   
+  ## Examples 
+
+    iex> hand = ["Ace of Spades", "Queen of Hearts"]
+    iex> Cards.contains?(hand, "Ace of Spades")
+    true
+    iex> Cards.contains?(hand, "Ace of Hearts")
+    false
 
   """
   def contains?(deck, card) do
@@ -74,6 +81,12 @@ defmodule Cards do
       - shuffle it 
       - and deal a hand
 
+  ## Examples 
+      
+      iex> deck = Cards.create_deck
+      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
 
   """
   def create_hand(n_cards) do 
