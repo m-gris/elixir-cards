@@ -10,14 +10,13 @@ defmodule Cards do
     Returns a list of strings that represent a deck of cards
   """
   def create_deck do
-    suits = ["Clubs", "Spades", "Hearts", "Diamonds"]
+    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
     values = ["Ace", "Two", "Three", "Four", "Five"]
 
     for suit <- suits, value <- values do 
       "#{value} of #{suit}"
       end
   end
-  
  
   @doc """ 
     Takes a `deck` (a list of strings) and returns a randomly shuffled copy of it.
@@ -25,7 +24,6 @@ defmodule Cards do
   def shuffle(deck) do 
     Enum.shuffle(deck)
   end
-
   
   @doc """ 
     Deals a hand from a `deck` (a list of strings) and `n_cards` (an int) 
@@ -53,8 +51,6 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
-  def save(deck, filename) do 
-    binary = :erlang.term_to_binary(deck)
   @doc """
     Allows to save `cards` to disk. Takes the `cards` and the `filename` as args.   
   """
@@ -62,7 +58,6 @@ defmodule Cards do
     binary = :erlang.term_to_binary(cards)
     File.write(filename, binary)
   end
-
   
   @doc """
     Allows to load cards from disk. 
